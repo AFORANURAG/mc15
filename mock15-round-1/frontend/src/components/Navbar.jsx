@@ -58,15 +58,21 @@ const [logout,setLogout]=useState(false);
 useEffect(()=>{
   if(logout){
   setToken(null);
-  window.location.href="https://mc15frontend.vercel.app/login"
+  
 }
 
   },[logout])
 
-
+useEffect(()=>{
+if(!token){
+navigate("/login");
+}
+},[token])
 
   function Logout(){
   localStorage.removeItem("accessToken");
+  localStorage.removeItem("Email");
+  localStorage.removeItem("")
   setLogout(true)  
   
   }
@@ -96,7 +102,7 @@ useEffect(()=>{
               spacing={4}
               >
               
-                <NavLink key={123123} to={`/contact`}>Contact</NavLink>
+                <NavLink key={123123} link={`/contact`}>Contact</NavLink>
              
             </Button>
             <Button
