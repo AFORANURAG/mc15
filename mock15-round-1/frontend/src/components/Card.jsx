@@ -8,13 +8,15 @@ const navigate = useNavigate()
 
 useEffect(()=>{
    if(friendsEmail){
-       navigate("/chat")
-
-   } 
+     
+  } 
 },[friendsEmail])
 
 function Chat(){
-setFriendsEmail(email);
+  setFriendsEmail(()=>{
+    return email  
+  });
+  navigate("/chat")
 
 }
 

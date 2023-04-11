@@ -101,9 +101,7 @@ navigate("/login");
           mr={4}
               spacing={4}
               >
-              
-                <NavLink key={123123} link={`/contact`}>Contact</NavLink>
-             
+            <NavLink key={123123} link={`/contact`}>Contact</NavLink> 
             </Button>
             <Button
             variant={'solid'}

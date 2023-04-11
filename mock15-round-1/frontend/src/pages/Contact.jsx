@@ -2,7 +2,6 @@ import React, { useState,useEffect,useContext } from 'react'
 import { url } from '../../url';
 import { socketContext } from '../contexts/socket.context';
 import ContactCard from '../components/Card';
-// import {  } from 'react';
 import {SimpleGrid } from '@chakra-ui/react'
 export default function Contact() {
   let [contacts,setContacts] = useState([]);

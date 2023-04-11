@@ -21,7 +21,6 @@ socket.on("reply",(data)=>{
 
   function addMessage(){
     socket.emit("message",[inputValue.current.value,friendsEmail]);
-    
     setContent((prev)=>{
         return [...prev,inputValue.current.value]
     })
