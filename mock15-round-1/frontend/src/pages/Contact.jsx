@@ -1,15 +1,23 @@
 import React, { useState,useEffect,useContext } from 'react'
 import { url } from '../../url';
 import { socketContext } from '../contexts/socket.context';
+import ContactCard from '../components/Card';
 // import {  } from 'react';
-import { Card, CardHeader, CardBody, CardFooter,Heading,Text,Button,SimpleGrid } from '@chakra-ui/react'
+import {SimpleGrid } from '@chakra-ui/react'
 export default function Contact() {
   let [contacts,setContacts] = useState([]);
- 
- useEffect(()=>{
+
+const {email,setEmail,socket} = useContext(socketContext);
+useEffect(()=>{
 getallContacts()
+updateSocketId(email)
  },[])
  
+function updateSocketId(email){
+console.log(`here is the email id `,email);
+socket.emit("updatesocketid",email);
+}
+
  async function getallContacts(){
 try {
 let data  = await fetch(`${url}/auth`)
@@ -21,31 +29,16 @@ console.log(`error while getting all the users`,error)
 }
  }
 
-function Chat(){
-    console.log(`lets Chat`)
-}
-
 // useEffect(()=>{
 // io.emit("updatesocketid",)
 // },)
-const {io,token,setToken} = useContext(socketContext);
     return (
 <div>
 <SimpleGrid columns={2} spacing={10}>
 {contacts?.map((el)=>{
-return(<div key={el._id} className='card'>
-<Card>
-    <CardHeader>
-      <Heading size='md'> {el.name}</Heading>
-    </CardHeader>
-    <CardBody>
-      <Text>{el.email}</Text>
-    </CardBody>
-    <CardFooter>
-      <Button onClick = {Chat} >Chat</Button>
-    </CardFooter>
-  </Card>
-</div>
+return(
+<ContactCard  key={el._id} {...el} className='card'/>
+
 
 )
 

@@ -19,7 +19,7 @@ import {
   import { useNavigate } from 'react-router-dom';
   export default function Login() {
     const [credentials,setCredentials] =useState({email:"",password:""});
-const {token,setToken} = useContext(socketContext);
+const {token,setToken,email,setEmail} = useContext(socketContext);
     const navigate = useNavigate();
     function handleChange(e){
 console.log(e.target)
@@ -31,6 +31,9 @@ setCredentials({...credentials,[name]:value})
 //    
  }
  async function Login(){
+  localStorage.setItem("Email",credentials.email);
+  setEmail(credentials.email)
+  
     try {
         let res = await fetch(`${url}/auth/login`,{
           method: 'POST',

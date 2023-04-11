@@ -9,8 +9,15 @@ export function SocketContextProvider({children}){
        return (localStorage.getItem("accessToken"))||null
     })
     
+  const [email,setEmail] = useState(()=>{
+    return localStorage.getItem("Email")||null;
+  }) 
+  const [friendsEmail,setFriendsEmail] = useState(()=>{
+    return localStorage.getItem("friendsemail")||null;
+  }) 
+  
 return (
-<socketContext.Provider value={{io,token,setToken}}>
+<socketContext.Provider value={{socket,token,setToken,email,setEmail,friendsEmail,setFriendsEmail}}>
 {children}
 </socketContext.Provider>
 

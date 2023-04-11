@@ -1,1 +1,1 @@
-export const url = "https://one5server.onrender.com"
+export const url = "http://localhost:3000"
