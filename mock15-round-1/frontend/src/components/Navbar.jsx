@@ -72,10 +72,15 @@ navigate("/login");
   function Logout(){
   localStorage.removeItem("accessToken");
   localStorage.removeItem("Email");
-  localStorage.removeItem("")
+  localStorage.removeItem("friendsemail")
   setLogout(true)  
-  
   }
+
+  function changeToContact(){
+
+  }
+
+
   console.log(token)
   return (
     <>
@@ -101,7 +106,7 @@ navigate("/login");
           mr={4}
               spacing={4}
               >
-            <NavLink key={123123} link={`/contact`}>Contact</NavLink> 
+            <NavLink key={123123} onClick={changeToContact} link={`/contact`}>Contact</NavLink> 
             </Button>
             <Button
             variant={'solid'}

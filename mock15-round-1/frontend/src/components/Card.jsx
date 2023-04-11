@@ -8,16 +8,14 @@ const navigate = useNavigate()
 
 useEffect(()=>{
    if(friendsEmail){
-     
-  } 
+     navigate("/chat")
+  }
+  
 },[friendsEmail])
 
 function Chat(){
-  setFriendsEmail(()=>{
-    return email  
-  });
-  navigate("/chat")
-
+  setFriendsEmail(email);
+  
 }
 
   return (
@@ -31,6 +29,8 @@ function Chat(){
     </CardBody>
     <CardFooter>
       <Button onClick = {Chat} >Chat</Button>
+
+      
     </CardFooter>
   </Card>
     </div>
