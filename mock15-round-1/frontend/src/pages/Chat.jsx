@@ -7,6 +7,18 @@ export default function Chat() {
   console.log(friendsEmail)
   let inputValue = useRef();
 
+
+
+useEffect(()=>{
+socket.on("reply",(data)=>{
+  console.log(data);
+  setContent((prevdata)=>{return [...prevdata,data]})
+})
+
+  
+},[socket])
+
+
   function addMessage(){
     socket.emit("message",[inputValue.current.value,friendsEmail]);
     
