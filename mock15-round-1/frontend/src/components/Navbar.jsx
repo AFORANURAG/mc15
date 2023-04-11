@@ -58,7 +58,7 @@ const [logout,setLogout]=useState(false);
 useEffect(()=>{
   if(logout){
   setToken(null);
-  window.location.href="/login"
+  window.location.href="https://mc15frontend.vercel.app/login"
 }
 
   },[logout])
